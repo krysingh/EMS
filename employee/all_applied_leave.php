@@ -36,7 +36,7 @@
       <fieldset>
             <legend>
                <center>
-                   <h2><b>Applied Leave For Employee</b></h2>
+                   <h2><b>Applied Leave</b></h2>
                </center>
             </legend>
             <br>
