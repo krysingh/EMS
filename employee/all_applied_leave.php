@@ -86,7 +86,7 @@
                   <?php 
                      if($result['status']=='pending'){
                   ?>
-                  <td><a href="applied_edit.php?id=<?php echo $result['id']  ?>" class="btn btn-sm btn-primary">Edit</a></td>
+                  <td><a href="" class="btn btn-sm btn-primary">Edit</a></td>
                   <?php } else{echo "<td>...</td>";} ?>
                </tr>
                <?php $i++; } }else{

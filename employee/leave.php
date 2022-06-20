@@ -1,4 +1,25 @@
 <?php include "../auth/auth.php"; include("config.php");?>
+<?php 
+
+// $sql="select al.e_leave as aeleave,al.c_leave as acleave,al.m_leave as amleave,el.e_leave as eeleave,el.c_leave as ecleave,el.m_leave as emleave from applied_leave al join emp_leave el on al.assign_by=el.assign_to";
+// $query=mysqli_query($conn,$sql);
+// $result=mysqli_fetch_array($query);
+// if(mysqli_num_rows($query) > 0){
+// while($result){
+// echo $a_eleave=$result['aeleave'];
+// echo $a_cleave=$result['acleave'];
+// echo $a_mleave=$result['amleave'];
+// echo "<br>";
+// echo $e_eleave=$result['eeleave'];
+// echo $e_cleave=$result['ecleave'];
+// echo $e_mleave=$result['emleave'];
+// echo "<br>";
+// echo $result1=$e_eleave - $a_eleave;
+// echo $result2=$e_cleave - $a_cleave;
+// echo $result3=$e_mleave - $a_mleave;
+
+// }}
+ ?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -59,9 +80,6 @@
                   <th>Earn Leave</th>
                   <th>Casual Leave</th>
                   <th>Medical Leave</th>
-                  
-               
-                  
                </tr>
             </thead>
             <tbody>
@@ -97,7 +115,6 @@
             <a href="all_applied_leave.php" class="btn btn-primary">All Applied Leave</a></div>
          </div><br>
          <div class="row">
-
              <form class="form-horizontal" action="leave_insert.php" method="post"  id="contact_form">
                <div class="form-group">
                   <div class="row">
@@ -132,7 +149,7 @@
                                  <label for="Earn Leave">Earn Leave : </label>
                               </div>
                               <div class="col-md-10">
-                                 <input type="text" name="e_leave" id="e_leave" onblur="checkemleave(this.value)" class="form-control">
+                                 <input type="text" name="e_leave"  id="e_leave" onblur="checkemleave(this.value)" class="form-control">
                                 <span class="text-danger msg7"></span>
                               </div>
                            </div>
@@ -185,19 +202,13 @@
          function  checkFrom(str) {
             var validFrom=$('.v_from').text();
             var validTo=$('.v_to').text();
-            // alert(validTo);
             var lfrm=str;
-            // alert(lfrm);
             var date1 = new Date(validFrom);
-            //alert(date1);
             var date2 = new Date(lfrm);
-               //alert(date2);
             var diffDays1 = parseInt((date2 - date1) / (1000 * 60 * 60 * 24)); 
-            //alert(diffDays1);
             var date3 = new Date(lfrm);
             var date4 = new Date(validTo);
             var diffDays2 = parseInt((date4 - date3) / (1000 * 60 * 60 * 24)); 
-           // alert(diffDays2);
            if(diffDays1<=0){
                $error="Please fill Valid Form Date";
                $('.msg5').text($error);
@@ -259,6 +270,24 @@
       </script>
      <script type="text/javascript">
          $(document).ready(function(){
+            $("#submit").click(function(e){
+               var v_from=$('#v_from').val();
+               var v_to=$('#v_to').val();
+               valid=true;
+               if(v_from == ''){
+                  $error="Valid From Date is required";
+                  $('.msg5').text($error);
+                  valid = false;
+               }
+               if(v_to == ''){
+                  $error="Valid To Date is required";
+                  $('.msg6').text($error);
+                  valid = false;
+               }
+               return valid;
+            });
+
+
                setTimeout(function() {
                            $('#session_success').fadeOut('slow');
                        }, 2000);
