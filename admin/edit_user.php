@@ -1,4 +1,4 @@
- <?php session_start(); include_once("config.php"); ?>
+<?php include "../auth/auth.php"; include("config.php");?> 
 <?php
  
  if(isset($_GET['id'])){

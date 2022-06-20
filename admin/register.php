@@ -1,5 +1,5 @@
-<?php include "../auth/auth.php"; ?>
-<?php include "header.php" ?>	
+<?php include "../auth/auth.php"; include("config.php");?>
+ <?php include "header.php" ?>	
       <div class="container" style="margin-top:50px;">
          <fieldset>
             <div class="well">

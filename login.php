@@ -23,9 +23,10 @@ if($check_email)
 		$_SESSION['auth']=$session_id;
 		$role=$result['role'];
 		if($role == 'admin'){
-			echo "<script>window.location.href='admin/dashboard.php'</script>";
+			header("Location:admin/dashboard.php");
 		}else if($role == 'employee'){
-			echo "<script>window.location.href='employee/dashboard.php'</script>";
+			header("Location:employee/dashboard.php");
+			//echo "<script>window.location.href='employee/dashboard.php'</script>";
 		}   
 	}    
 	else{

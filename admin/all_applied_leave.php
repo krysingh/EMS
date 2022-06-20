@@ -1,6 +1,6 @@
 <?php include "../auth/auth.php"; include("config.php");?>
-<?php
 
+<?php
 if(isset($_POST['approved'])){
   $status="approved";
   $comment=$_POST['comment'];
